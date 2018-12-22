@@ -21,7 +21,7 @@ function configure (obj) {
 }
 
 function middleware (req, res, next) {
-
+  res.set({'Content-Length': 0});
   if (!conf.disable_cookies && (!req.cookies || !req.cookies._tracker)) {
     _getUserToken(function (e, token) {
       req.cookies._tracker = token
